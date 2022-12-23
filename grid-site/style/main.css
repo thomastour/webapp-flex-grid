@@ -9,6 +9,11 @@ body {
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+
 .container {
     display: grid;
     grid-template-columns: 20% 80%;
@@ -16,17 +21,168 @@ body {
 }
 
 header {
-    background-color: rgb(33, 33, 121);
+    background-color: #68a7ad;
 }
 
+.header-title {
+    margin-left:  1rem;
+}
+
+
 main {
-    background-color: rgb(134, 134, 113);
+    background-color: #ffdbc5
+ 
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+}
+
+nav li {
+    list-style: none;
+}
+
+nav li a {
+
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    color: var(--wedding);
+}
+
+nav li a:hover {
+    background-color: rgb(37, 99, 170);
+}
+
+.banner {
+    text-align: center;
+}
+
+.banner img {
+    width:200px;
+    height:auto;
+    border-radius:10%;
+}
+
+.banner-images {
+    margin-left:auto;
+    margin-right:auto;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #c6b4ce;
+    border: 1px solid black;
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 25px;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+.bgcolor-beige {
+    background-color: #f5e1da;
+}
+
+section {
+    padding: 1rem;
+}
+
+/* Δημιουργία hamburger menu με CSS */
+
+.hamb {
+    position: absolute;
+    top: 5rem;
+    left: 25rem;
+    right: 5rem;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamb-line {
+    background: white;
+    display: none;
+    height: 2px;
+    position: relative;
+    width: 30px;
+}
+
+.hamb-line::before,
+.hamb-line::after{
+    background: white;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    transition: all .2s ease-out;
+}
+
+.hamb-line::before{
+    top: 5px;
+}
+
+.hamb-line::after{
+    top: -5px;
+}
+
+.side-menu {
+    display: none;
+}
+
+.side-menu:checked ~ nav.active {
+    display: flex;
+}
+
+.side-menu:checked ~ .hamb .hamb-line {
+    background: transparent;
+}
+
+.side-menu:checked ~ .hamb .hamb-line::before {
+transform: rotate(-45deg);
+top: 0;
+}
+
+.side-menu:checked ~ .hamb .hamb-line::after {
+    transform: rotate(45deg);
+    top:0;
 }
 
 
 @media screen and (max-width: 600px) {
 
+    
+    .main {
+        overflow: auto;
+    }
+
+    header {
+        position: sticky;
+        top: 0;
+    }
+
     .container {
         grid-template-columns: 100%;
     }
+
+    
+    nav li  {
+        text-align: center;
+    }
+
+    .hamb-line{
+        display: block;
+    }
+
+    nav.active {
+    display:none;
+    
+}
 }
